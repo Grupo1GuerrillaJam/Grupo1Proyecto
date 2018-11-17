@@ -68,4 +68,37 @@ public class CarController : MonoBehaviour {
 		Vector2 move = new Vector2 (speedX * sprintX *Time.deltaTime, speedY * sprintY* Time.deltaTime);
 		_rigi.MovePosition (_rigi.position + move);
 	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Drug")
+        {
+            DrugEffect();
+        }
+        if (collision.gameObject.tag == "Alcohol")
+        {
+            AlcoholEffect();
+        }
+        if (collision.gameObject.tag == "Sleep")
+        {
+            SleepEffect();
+        }
+    }
+
+
+    //Aquí habrá que desarrollar los diferentes efectos negativos. Por el momento sólo muestra un mensaje.
+    private void DrugEffect()
+    {
+        Debug.Log("Yo no consumo nada ¿sabes? Yo me meto todaaaaaa");
+    }
+
+    private void SleepEffect()
+    {
+        Debug.Log("Tengo más sueño que una cestica gaticos al lado de la estufa");
+    }
+
+    private void AlcoholEffect()
+    {
+        Debug.Log("Ciento y pico de venas en alcohol");
+    }
 }
